@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      $("#submit").click(function (event) {
+        event.preventDefault();
+
+        var payload = { 'name': $("#name").val(), 'description': $("#description").val() };
+
+        $("#submit").prop("disabled", true);
+
+        $.ajax({
+          type: "PUT",
+          cache: false,
+          url: "http://localhost:8080//CategoryRestService/Add",
+          data: JSON.stringify(payload),
+          contentType: 'application/json; charset=utf-8',
+          dataType: 'json',
+          async: false,
+        });
+
+      });
+
+    });</script>
+</head>
+
+<body>
+  <h2>Registrar</h2>
+
+  <form action="http://localhost:8080//CategoryRestService/Add" method="POST" id="form">
+    <label for="name">name</label><br>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="description">description</label><br>
+    <input type="text" id="description" name="description"><br><br>
+
+    <input type="submit" value="registrar" id="submit">
+  </form>
+
+</body>
+
+</html>
