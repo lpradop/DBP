@@ -28,6 +28,7 @@ import com.makotojava.learn.odot.exception.ServiceException;
 import com.makotojava.learn.odot.model.Item;
 
 @Service
+
 public class ItemService {
 
   private static final Logger log = LoggerFactory.getLogger(ItemService.class);
