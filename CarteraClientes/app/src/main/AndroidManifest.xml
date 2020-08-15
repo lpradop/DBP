@@ -24,6 +24,20 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+                android:name=".ViewClients"
+                android:label="Lista de Clientes"
+                android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".SearchClient"
+                  android:label="Buscar Cliente"
+                  android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+
+
+
     </application>
 
 </manifest>

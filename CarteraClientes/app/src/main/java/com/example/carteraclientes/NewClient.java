@@ -10,7 +10,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.View;
 import com.example.carteraclientes.database.DatabaseManager;
 
 public class NewClient extends AppCompatActivity {
@@ -89,7 +88,7 @@ public class NewClient extends AppCompatActivity {
 
     private void getFieldsValues() {
         for (int i = 0; i < fields.length; ++i) {
-            fields_values[i] = fields[i].getText().toString();
+            fields_values[i] = fields[i].getText().toString().trim();
         }
     }
 }

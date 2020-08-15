@@ -57,8 +57,17 @@ public class DatabaseManager {
         return database.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper._ID + " = " + id, null);
     }
 
-    public void delete(long id) {
-        database.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper._ID + "=" + id, null);
+    public void delete(String name) {
+        database.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper.NAME + "=?", new String[]{name});
+    }
+    public Cursor getByName(String name){
+        String[] columns = new String[]{DatabaseHelper.NAME, DatabaseHelper.ADDRESS, DatabaseHelper.EMAIL,DatabaseHelper.PHONE};
+        String[] args=new String[]{name};
+        Cursor cursor= database.query(DatabaseHelper.TABLE_NAME,columns,DatabaseHelper.NAME+"=?",args,null,null,null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
     }
 
 }
